@@ -1,10 +1,18 @@
 require_relative '../config/environment'
 
-puts "hello world"
+puts "Well come to Redbox"
 puts "what is your name " 
 
-name =gets.chomp
+name = gets.chomp
 return name
+
+puts "Helle #{name} what movie"
+
+
+
+
+
+
 
 
  
