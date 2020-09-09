@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_155347) do
     t.integer "quantity"
   end
 
-  create_table "redboxs", force: :cascade do |t|
+  create_table "redboxes", force: :cascade do |t|
     t.string "customer"
     t.string "movie"
     t.integer "rating"
