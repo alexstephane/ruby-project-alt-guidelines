@@ -3,15 +3,15 @@ require_relative "../lib/movie.rb"
 require_relative "../lib/redbox.rb"
 
 #creating customer
-alex_s=Customer.create(name: "Alex", username:"alex_steph")
-rahel_p=Customer.create(name: "Rahel", username:"rahel20")
-milina_j=Customer.create(name: "Milina", username:"milina20")
+alex=Customer.create(username:"alex_steph")
+rahel=Customer.create( username:"rahel")
+romina=Customer.create(username:"romina")
 
 #creating movies
 
-movie1=Movie.new(name:"Titanic",date:"12-22-2020", 20)
-movie2=Movie.new(name:"Homeland",date:"12-22-2020", 5)
-movie3=Movie.new(name:"Shark moview",date:"12-22-2020", 3)
+movie1=Movie.new(name:"Titanic",date:"2016", 3)
+movie2=Movie.new(name:"Homeland",date:"2019", 5)
+movie3=Movie.new(name:"Shark moview",date:"2020", 3)
 
 
 ##creating redbox
