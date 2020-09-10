@@ -1,4 +1,4 @@
-class Redboxes < ActiveRecord::Base
+class Redbox < ActiveRecord::Base
   belongs_to :customer
   belongs_to :movie
 end

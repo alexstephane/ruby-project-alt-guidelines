@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_155347) do
   end
 
   create_table "redboxes", force: :cascade do |t|
-    t.string "customer"
-    t.string "movie"
+    t.integer "customer_id"
+    t.integer "movie_id"
     t.integer "rating"
   end
 
