@@ -1,7 +1,7 @@
 require_relative "../lib/customer.rb"
 require_relative "../lib/movie.rb"
 require_relative "../lib/redbox.rb"
-
+require pry
 
 Customer.destroy_all
 Movie.destroy_all
@@ -27,5 +27,6 @@ Redbox_2=Redbox.find_or_create_by(customer_id: romina.id, movie_id: movie2.id,ra
 Redbox_3=Redbox.find_or_create_by(customer_id: romina.id, movie_id: movie3.id, rating: 1)
 Redbox_4=Redbox.find_or_create_by(customer_id: rahel.id, movie_id: movie3.id, rating: 2)
 Redbox_5=Redbox.find_or_create_by(customer_id: alex.id, movie_id: movie1.id, rating: 1)
+binding.pry
 
-
+p movie1
