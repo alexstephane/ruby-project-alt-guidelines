@@ -7,14 +7,15 @@ require_relative '../config/environment'
 # return name
 
 # puts "Helle #{name} what movie"
-# system "clear"
-# display
-# greeting
-# system "clear"
-# main_menu($user)
 
-# app = cli.rb
-# run.app
+system "clear"
+display
+greeting
+system "clear"
+($user)
+
+
+
 
 
 
