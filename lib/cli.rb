@@ -3,8 +3,8 @@ require 'pry'
 
 
 def main_menu
-    puts "        Welcome to Redbox!"
-    puts "        Do you have an account? (Y/N)"
+    puts " Welcome to Redbox!"
+    puts "Do you have an account? (Y/N)"
 
     
         user_response = gets.chomp.downcase
@@ -13,14 +13,14 @@ def main_menu
             puts "\nPlease enter username"
             user_input = gets.chomp.downcase
             Customer.find_by(userName: user_input)
-            
+
                user_menu(user_input)
 
         else 
             
             user_response == 'N'.downcase
             create_account
-            binding.pry
+            #binding.pry
     
         end
     
@@ -34,20 +34,26 @@ def create_account
     puts "\nLet's create an account!"
         puts "Please enter your username"
         
-            user_username = gets.chomp.downcase
-            Customer.create(username: user_username)
+            username = gets.chomp.downcase
+            puts "\nWhat is your name?"
+            name = gets.chomp
+            Customer.create(userName: username, name: name)
             
-                puts "\nWhat is your name?"
-                  user_name = gets.chomp
-                Customer.create(name: user_input)
+                #binding pry
+                  
+                
                
         
 end
 
-def list_movies(user)
-    puts "all movies"
-
-    Movie.all
+def list_movies()
+  Movie.all.each do |movie|
+   puts  movie.title
+    
+  end
+  
+#binding pry
+   
     
 end
 
@@ -71,7 +77,7 @@ def user_menu(user)
     puts  " WELCOME #{user.upcase} "
     puts "         1. to see a list of all  movies" 
     puts "         2. to check out a movie " 
-    puts "         3. see a list of your trans" 
+    puts "         3. see a list of your transaction" 
     puts "         4. Delete Account" 
     puts "         5. Exit" 
     puts "\n                        
@@ -86,7 +92,7 @@ def user_menu(user)
         # using when 
         when "1"
           puts 'Listing all movies'
-          list_movies(user)
+          list_movies()
           
         when "2"  
           puts 'checking out movie'

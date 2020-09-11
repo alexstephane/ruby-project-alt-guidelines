@@ -15,8 +15,8 @@ require_relative '../config/environment'
 system "clear"
 display
 main_menu
-system "clear"
-($user)
+# system "clear"
+# ($user)
 
 
 
