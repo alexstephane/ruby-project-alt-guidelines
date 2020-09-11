@@ -52,7 +52,7 @@ def list_movies(user)
    
     
   end
-  sleep(2)
+  sleep(1)
   user_menu(user)
   
 #binding pry
@@ -72,13 +72,14 @@ def checkout(user)
     Redbox.create(customer_id: user.id, movie_id: movie.id )
     movie.quantity += 1
     movie.save
-    sleep(2)
-    puts "\nThank you for checking out #{title}\n"
-    sleep(2)
-
     
+    puts "\nThank you for checking out #{title}\n"
+    
+
+    puts "press any key to return to the main menu "
+    gets.chomp
     user_menu(user)
-    sleep(1)
+   
     
    #binding pry
 end
@@ -90,8 +91,7 @@ def  history(user)
     user.movies.each do |movie|
        puts movie.title
     end
-    puts "press any key to return to the main menu "
-    gets.chomp
+    
     user_menu(user)
 end
 
@@ -118,7 +118,7 @@ def user_menu(user)
     puts Rainbow( "\n                        
       
      Please select from the options above using numbers (1-5) as your input:").red
-     sleep(1)
+     
       
     user_input = gets.chomp
      
