@@ -8,9 +8,15 @@ require_relative '../config/environment'
 
 # puts "Helle #{name} what movie"
 
+# system "clear"
+# display
+# main_menu
+
 system "clear"
 display
-greeting
+main_menu
+system "clear"
+($user)
 
 
 

@@ -3,7 +3,7 @@ require_relative "../lib/movie.rb"
 require_relative "../lib/redbox.rb"
 
 #creating customer
-alex_s=Customer.find_or_find_or_create_by _by (name: "Alex", username:"alex_steph")
+alex_s=Customer.find_or_find_or_create_by(name: "Alex", username:"alex_steph")
 rahel_p=Customer.find_or_create_by (name: "Rahel", username:"rahel20")
 milina_j=Customer.find_or_create_by (name: "Milina", username:"milina20")
 
