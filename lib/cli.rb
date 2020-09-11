@@ -1,20 +1,21 @@
 
 require 'pry'
+require "rainbow"
 
 
 def main_menu
-    puts " Welcome to Redbox!"
+    puts Rainbow(" Welcome to Redbox!").red
     puts "Do you have an account? (Y/N)"
 
     
         user_response = gets.chomp.downcase
         
         if user_response == 'Y'.downcase
-            puts "\nPlease enter username"
+            puts Rainbow("\nPlease enter username").blue
             user_input = gets.chomp.downcase
-            Customer.find_by(userName: user_input)
-
-               user_menu(user_input)
+            user=  Customer.find_by(userName: user_input)
+            
+               user_menu(user)
 
         else 
             
@@ -32,25 +33,29 @@ end
 
 def create_account
     puts "\nLet's create an account!"
-        puts "Please enter your username"
+        puts "Please enter your name"
         
             username = gets.chomp.downcase
-            puts "\nWhat is your name?"
+            puts "\nWhat is your username?"
             name = gets.chomp
-            Customer.create(userName: username, name: name)
+   user= Customer.create(userName: username, name: name)
             
                 #binding pry
                   
-                
+                #instance.update(column: value)
                
+               user_menu(user)
         
 end
 
-def list_movies()
+def list_movies(user)
   Movie.all.each do |movie|
-   puts  movie.title
+   puts movie.title
+   
     
   end
+  sleep(2)
+  user_menu(user)
   
 #binding pry
    
@@ -58,15 +63,46 @@ def list_movies()
 end
 
 def checkout(user)
-    puts " movie checkedout"
+  
+    puts "what movie would you like to see?"
+  sleep(1)
+    title= gets.chomp
+
+   movie= Movie.find_by(title: title)
+   #binding.pry
+
+    Redbox.create(customer_id: user.id, movie_id: movie.id )
+    movie.quantity += 1
+    movie.save
+    sleep(2)
+    puts "\nThank you for checking out #{title}\n"
+    sleep(2)
+
+    
+    user_menu(user)
+    sleep(1)
+    
+   #binding pry
 end
+
+
 
 def  history(user)
     puts "user history "
+    user.movies.each do |movie|
+       puts movie.title
+    end
+    sleep(2)
+    user_menu(user)
 end
 
 def delete(user)
-    puts "user deleted"
+   
+  user.destroy
+
+  main_menu
+
+  
 end
 
 
@@ -74,16 +110,17 @@ end
 def user_menu(user)
 
 
-    puts  " WELCOME #{user.upcase} "
+    puts Rainbow(                              " WELCOME #{user.userName.upcase} ").red
     puts "         1. to see a list of all  movies" 
     puts "         2. to check out a movie " 
     puts "         3. see a list of your transaction" 
     puts "         4. Delete Account" 
     puts "         5. Exit" 
-    puts "\n                        
-    
-    Please select from the options above using numbers (1-5) as your input:"
-
+    puts Rainbow( "\n                        
+      sleep(1)
+     Please select from the options above using numbers (1-5) as your input:").red
+     
+      
     user_input = gets.chomp
      
 
@@ -92,7 +129,7 @@ def user_menu(user)
         # using when 
         when "1"
           puts 'Listing all movies'
-          list_movies()
+          list_movies(user)
           
         when "2"  
           puts 'checking out movie'

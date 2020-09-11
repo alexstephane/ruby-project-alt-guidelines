@@ -11,7 +11,7 @@ milina_j=Customer.find_or_create_by (name: "Milina", username:"milina20")
 
 movie1=Movie.new(name:"Titanic",date:"12-22-2020", 20)
 movie2=Movie.new(name:"Homeland",date:"12-22-2020", 5)
-movie3=Movie.new(name:"Shark moview",date:"12-22-2020", 3)
+movie3=Movie.new(name:"Shark movie",date:"12-22-2020", 3)
 
 
 ##creating redbox
