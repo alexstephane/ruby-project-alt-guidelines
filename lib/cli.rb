@@ -40,9 +40,7 @@ def create_account
             name = gets.chomp
    user= Customer.create(userName: username, name: name)
             
-                #binding pry
-                  
-                #instance.update(column: value)
+                
                
                user_menu(user)
         
@@ -92,7 +90,8 @@ def  history(user)
     user.movies.each do |movie|
        puts movie.title
     end
-    sleep(2)
+    puts "press any key to return to the main menu "
+    gets.chomp
     user_menu(user)
 end
 
@@ -113,13 +112,13 @@ def user_menu(user)
     puts Rainbow(                              " WELCOME #{user.userName.upcase} ").red
     puts "         1. to see a list of all  movies" 
     puts "         2. to check out a movie " 
-    puts "         3. see a list of your transaction" 
-    puts "         4. Delete Account" 
+    puts "         3. to see a list of your transactions" 
+    puts "         4. to delete your account" 
     puts "         5. Exit" 
     puts Rainbow( "\n                        
-      sleep(1)
+      
      Please select from the options above using numbers (1-5) as your input:").red
-     
+     sleep(1)
       
     user_input = gets.chomp
      
